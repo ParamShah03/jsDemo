@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* delete modal pop up */
+.modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.4rem;
+    width: 450px;
+    padding: 1.3rem;
+    min-height: 250px;
+    position: absolute;
+    top: 20%;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    z-index: 2;
+    transform: translate(62%, 25%);
+}
+/* modal title */
+.modal h3 {
+    transform: translateY(-50px);
+    font-size: 25px;
+    pointer-events: none;
+
+}
+/* modal paragraph */
+.modal p {
+    transform: translateY(-30px);
+    font-size: 1.3rem;
+    color: #434343;
+    margin: 0.4rem 0 0.2rem;
+    pointer-events: none;
+
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    font-weight: 600;
+}
+/* yes button */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.4rem;
+    font-weight: 700;
+    background-color: rgb(5, 11, 48);
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+
+/* close button on delete popup */
+.btn-close {
+    transform: translate(375px, -10px);
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    background: #e3e2e2;
+    border-radius: 50%;
+    cursor: pointer;
+
+}
+/* blur background */
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    z-index: 1;
+}
+
+/* hide modal */
+.hidden{
+    display: none;
+}
+
+/* page heading */
+h2{
+    transform: translateY(70%);
+    font-size: 30px;
+}
+
+/* add button */
+#addBtn {
+    transform: translate(730%, -30%);
+    padding-bottom: 10px;
+    width: 12%;
+    background-color: #04AA6D;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 2;
+    color: white;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 6px;
+    cursor: pointer;
+}
+/* upload icon */
+.fas.fa-cloud-upload{
+    padding-right: 8px;
+}
+
+/* add button hover effect */
+#addBtn:hover {
+    background-color: #106c4a;
+    
+}
+
+/* make contents visible */
+.feature-contents {
+    padding-left: 300px;
+    padding-right: 12px;
+}
+
+/* couch table*/
+#feature-table {
+font-family: Arial, Helvetica, sans-serif;
+border-collapse: collapse;
+width: 100%;
+}
+
+#feature-table td, #feature-table th, #feature-table tr th {
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 12px;
+}
+
+/* alternate color */
+#feature-table tr:nth-child(even){background-color: #f2f2f2;}
+/* on hover color change */
+#feature-table tr:hover {background-color: #cccccc;}
+/* couch table titles */
+#feature-table th {
+padding-top: 12px;
+padding-bottom: 12px;
+text-align: left;
+background-color: #04AA6D;
+color: white;
+}
+
+/* table data icon hover effect */
+#view-data:hover, #edit-data:hover, #delete-data:hover{
+    background: #04AA6D;
+}
+.fas.fa-eye:hover, .fas.fa-pencil:hover, .fas.fa-trash:hover {
+    color: white;
+    transform: scale(1.35);
+}
+
+/* title of image */
+.details:hover {
+    text-decoration: underline;
+    letter-spacing: 5;
+    transform: scale(1.15);
+    cursor: pointer;
+}
+
+/* popup feature details */
+#popup-table {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%; 
+    pointer-events: none;
+    z-index: 2;
+    background-color: aliceblue;
+    border-collapse: collapse;
+
+}
+#popup-table td, #popup-table th, #popup-table tr th {
+    text-align: center;
+    border: 2px solid #282828;
+    padding: 12px;
+    font-size: 20px;
+    letter-spacing: 1.2px;
+    
+}
+#popup-table th {
+    text-align: left;
+    background-color: #70e878;
+    font-weight: 650;
+    font-size: 18px;
+}
+
+.featurePopup{
+    display: flex;
+    width: 50%;
+    height: auto;
+    position: absolute;
+    top: 35%;
+    right: 15%;
+    border: 2.5px solid #180e0e;
+    z-index: 2;
+}
+
+.featurePopup.hidden {
+    display: none;
+}
+
+
+/* alert warning */
+.alert{
+    background: #c0f580;
+    padding: 20px 40px;
+    min-width: 400px;
+    position: absolute;
+    right: 5px;
+    bottom: 35px;
+    overflow: hidden;
+    border-radius: 5px;
+    border-left: 12px solid #0c0d32;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* animation of alert warning */
+.alert.show{   
+    opacity: 1; 
+    pointer-events: auto;
+    animation: show_slide 1s ease forwards;
+}
+@keyframes show_slide {
+    0%{
+        transform: translateX(100%);
+    }
+    40%{
+        transform: translateX(-10%);
+    }
+    80%{
+        transform: translateX(0%);
+    }
+    100%{
+        transform: translateX(-10px);
+    }
+}
+.alert.hide {
+    opacity: 1;
+    animation: hide_slide 1s ease forwards;
+}
+@keyframes hide_slide {
+    0%{
+        transform: translateX(-10px);
+    }
+    40%{
+        transform: translateX(0%);
+    }
+    80%{
+        transform: translateX(-10%);
+    }
+    100%{
+        transform: translateX(105%);
+    }
+}
+
+.alert .fa-exclamation-circle{
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #222020;
+    font-size: 37px;
+}
+.alert .msg{
+    padding: 0 20px;
+    font-size: 22px;
+    font-weight: 600;
+    color: #333;
+}
+.alert .close-btn-alert{
+    position: absolute;;
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #fcc56c;
+    cursor: pointer;
+}
+.close-btn-alert:hover{
+    background: #e84646;
+}
+.close-btn-alert .fa-times{
+    color: #222020;
+    font-size: 37px;
+    transform: translate(7px, 32px);
+    height: 100px;
+    width: 40px;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/couchEdit.css">
+    <title>Edit</title>
+</head>
+<body>
+    <!-- sidebar -->
+    <div class="sidebar-attach"></div>
+
+    <!-- warning alert -->
+    <div class="alert" id="alert">
+        <span class="fas fa-exclamation-circle"></span>
+        <span class="msg" id="warning-msg">This is alert warning</span>
+        <span class="close-btn-alert" id="close-btn-alert">
+            <span class="fas fa-times"></span>
+        </span>
+    </div>
+    
+    <!-- couch edit contents -->
+    <div class="couchEdit-contents" id="couchEdit-contents">
+        <h4 style="font-size: 30px;">Edit details</h4>
+
+        <!-- edit form -->
+        <form action="" class="form">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="" placeholder="Title">
+
+            <div>
+                <label for="image">Image</label>
+                <input type="file" id="image">
+            </div>
+            
+        
+            <label for="description">Description</label>
+            <textarea name="description" id="description" placeholder="description"></textarea>        
+            
+          
+            <input type="submit" value="Edit" onclick=" return editCouch();">
+          </form>
+    </div>
+
+    <!-- script tags -->
+    <script src="../../cookie.js"></script>
+    <script src="../../callApi.js"></script>
+    <script src="../js/couchEdit.js"></script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* positioning couch edit contents */
+.featureEdit-contents {
+    padding-left: 300px;
+}
+
+/* edit form */
+form{
+    font-size: 20px;
+    transform: translate(12%, 30%);
+    width: 80%;
+    border-radius: 10px;
+    background-color: #f2f2f2;
+    box-shadow: 8px 10px #676767;
+    padding: 20px;
+}
+
+input[type=text], select {
+    font-size: 20px;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=file],select{
+    font-size: 20px;
+    width: 40%;
+    padding: 12px 20px;
+    background: whitesmoke;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1.5px solid;
+    border-radius: 4px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+textarea,select {
+    font-size: 20px;
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 50px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* edit button */
+input[type=submit] {
+    transform: translateX(400%);
+    width: 20%;
+    background-color: #04AA6D;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 2;
+    color: white;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 6px;
+    cursor: pointer;
+}
+  
+input[type=submit]:hover {
+    background-color: #0c7b52;
+}
+
+/* alert warning */
+.alert{
+    background: #c0f580;
+    padding: 20px 40px;
+    min-width: 400px;
+    position: absolute;
+    right: 5px;
+    bottom: 35px;
+    overflow: hidden;
+    border-radius: 5px;
+    border-left: 12px solid #0c0d32;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* animation of alert warning */
+.alert.show{   
+    opacity: 1; 
+    pointer-events: auto;
+    animation: show_slide 1s ease forwards;
+}
+@keyframes show_slide {
+    0%{
+        transform: translateX(100%);
+    }
+    40%{
+        transform: translateX(-10%);
+    }
+    80%{
+        transform: translateX(0%);
+    }
+    100%{
+        transform: translateX(-10px);
+    }
+}
+.alert.hide {
+    opacity: 1;
+    animation: hide_slide 1s ease forwards;
+}
+@keyframes hide_slide {
+    0%{
+        transform: translateX(-10px);
+    }
+    40%{
+        transform: translateX(0%);
+    }
+    80%{
+        transform: translateX(-10%);
+    }
+    100%{
+        transform: translateX(105%);
+    }
+}
+
+.alert .fa-exclamation-circle{
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #222020;
+    font-size: 37px;
+}
+.alert .msg{
+    padding: 0 20px;
+    font-size: 22px;
+    font-weight: 600;
+    color: #333;
+}
+.alert .close-btn-alert{
+    position: absolute;;
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #fcc56c;
+    cursor: pointer;
+}
+.close-btn-alert:hover{
+    background: #e84646;
+}
+.close-btn-alert .fa-times{
+    color: #222020;
+    font-size: 37px;
+    transform: translate(7px, 32px);
+    height: 100px;
+    width: 40px;
+}

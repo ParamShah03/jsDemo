@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* side bar styling */
+.sidebar{
+    overflow: hidden;
+    position: fixed;
+    left: 0;
+    width: 280px;
+    height: 100%;
+    background: #042331;
+}
+/* sidebar header */
+.sidebar header {
+    font-size: 22px;
+    color: white;
+    text-align: center;
+    line-height: 70px;
+    background: #063146;
+    user-select: none;
+}
+/* side bar list */
+.sidebar ul a{
+    list-style: none;
+    text-decoration: none;
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-height: 65px;
+    font-size: 20px;
+    color: white;
+    padding-left: 30px;
+    box-sizing: border-box;
+    border-top: 2px solid rgba(255, 255, 255, .1);
+    border-bottom: 2px solid black;
+}
+/* sidebar icons */
+.sidebar ul a i{
+    margin-right: 16px;
+}
+/* hover color change of list tile */
+.sidebar ul li:hover{
+    background: #0e6e9e;
+}
+/* drop down icon */
+.fas.fa-caret-down{
+    transform: translateX(50px);
+}
+.collection-dropdown {
+    display: none;
+}
+/* dropdown display*/
+.collections:hover .collection-dropdown{
+    transition: 0.4s;
+    display: block;
+    background-color: #063146;
+}
+/* styling of dropdown */
+.collection-dropdown li a{
+    font-size: 15px;
+}
+/* dropdown hover */
+.collection-dropdown li:hover{
+    transition: 0.4s;
+    padding-left: 18px;
+}
+
+

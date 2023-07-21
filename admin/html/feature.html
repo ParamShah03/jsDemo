@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/feature.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <title>Features</title>
+</head>
+<body>
+    <!-- sidebar -->
+    <div class="sidebar-attach"></div>
+
+    <!-- Couch collection details -->
+    <div class="feature-contents" id="feature-contents">
+
+        <!-- warning alert -->
+        <div class="alert" id="alert">
+            <span class="fas fa-exclamation-circle"></span>
+            <span class="msg" id="warning-msg">This is alert warning</span>
+            <span class="close-btn-alert" id="close-btn-alert">
+                <span class="fas fa-times"></span>
+            </span>
+        </div>
+
+        <!-- delet pop up -->
+        <section class="modal hidden">
+            
+            <button class="btn-close" onclick="closeModal()">⨉</button>
+            <h3 id="modal-title">Couch Details</h3>
+            <p>Are you sure you want to delete this record?</p>
+            <input type="hidden" id="featureId" name="featureId" value="">
+            <input type="hidden" id="featureImg" name="featureImg" value="">
+            <button class="btn" id="yes" onclick="return yesBtn();">Yes</button>
+            
+            </section>
+            
+            <div class="overlay hidden"></div>
+        </section>
+
+        <!-- details popup -->
+        <section class="featurePopup hidden">
+            <table id="popup-table">
+                <tr>
+                    <th>Title</th>
+                    <td id="popup-title"></td>
+
+                </tr>
+                <tbody id="popupData">
+                    <tr>
+                        <th>Description</th>
+                        <td id="popup-desc"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="overlay hidden"></div>
+
+        </section>
+
+    <h2>Features</h2>
+    <button class="addBtn" id="addBtn" ><i class="fas fa-cloud-upload"></i> Add</button>
+    <table id="feature-table">
+        <tr>
+            <th>Title</th>
+            <th>View</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <tbody id="featureData">
+            <!-- <tr>
+                <td>One</td>
+                <td id="view-data"><a href="#" target="_blank" title="view image" id="viewImage"><i class="fas fa-eye"></i></a></td>
+                <td id="edit-data"><a href="#" target="_self" onclick="getCouch()" title="edit data" id="editData"><i class="fas fa-pencil"></i></a></td>
+                <td id="delete-data"><a href="#" title="delete data" id="deleteData"><i class="fas fa-trash"></i></a></td>
+            </tr> -->
+        </tbody
+    </table>
+    </div>
+    
+    <!-- script tags -->
+    <script src="../../cookie.js"></script>
+    <script src="../../callApi.js"></script>
+    <script src="../js/feature.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>HomePage</title>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="fullpage.min.css.map">
+</head>
+<body>
+    <!-- window onload popup -->
+    <div class="popup">
+        <div class="contentBox">
+            <div class="close"></div>
+            <div class="imageBox">
+                <img src="./images/gifts.png" alt="">
+            </div>
+            <div class="content">
+                
+                <h3>Special Offers</h3>
+                <h2>80% <span>OFF</span></h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia maiores obcaecati fugiat voluptas soluta labore impedit molestias corporis ipsum ullam.</p>
+                <a href="#">Get the Deal</a>
+            </div>
+        </div>
+    </div>
+
+    <!--animated input form-->
+    <div class="Info">
+        <form action="">
+            <h2>Information</h2>
+            <div class="input-group">
+                <input type="text">
+                <label for="">Name</label>
+            </div>
+            <div class="input-group">
+                <input type="input-group">
+                <label for="">Number</label>
+            </div>
+            <button type="submit" class="btn" id="Login-btn" onclick="return removeInfo()">Close</button>
+        </form>
+    </div>
+
+    <div id="fullpage">
+        <!--first section and navbar-->
+        <section class="s1" id="section1">
+            <nav>
+                <ul class="nav-links">
+                    <div class="nav-item">
+                        <li><a href="#">Home</a></li>
+                        <div class="active-nav"></div>
+                    </div>
+                    <div class="nav-item">
+                        <li><a href="#">Project</a></li>
+                    </div>
+                    <div class="nav-item">
+                        <li><a href="#">About</a></li>
+                    </div>
+                </ul>
+            </nav>
+        </section>
+
+        <!--section 2 chair and description-->
+        <section class="s2">
+            <h1>Different styles</h1>
+            <div class="description">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima dolor unde ad necessitatibus, rerum et suscipit sed ullam magnam rem quod quas ipsa quibusdam dolorum!</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic facilis aliquam nobis sequi nulla maiores aspernatur consequatur, quisquam officia eligendi ipsa. Vitae optio culpa doloribus. Nemo error doloremque exercitationem quis ea eos nulla molestias veniam provident at deserunt laboriosam, illum tempora eveniet voluptatum ab corrupti debitis modi perspiciatis quod temporibus?</p>
+            </div>
+            <img src="./images/chair3.png" alt="chair" class="chair" id="section2Image">
+            <!-- <img src="./images/chair2.png" alt="chair" class="chair">
+            <img src="./images/chair1.png" alt="chair" class="chair"> -->
+        </section>
+
+        <!--wrapping section 3 in section 4-->
+        <section class="s4">
+            <section class="s3" id="section3">
+                <!-- <div class="card">
+                    <img src="./images/couch1.png" alt="Couch1" id="image1">
+                    <h1 id="name1">One</h1>
+                    <p id="desc1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias quidem aut iure itaque necessitatibus libero ipsa perspiciatis impedit repudiandae sed.</p>
+                </div>
+                <div class="card">
+                    <img src="./images/couch2.png" alt="Couch2" id="image2">
+                    <h1 id="name2">Two </h1>
+                    <p id="desc2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias quidem aut iure itaque necessitatibus libero ipsa perspiciatis impedit repudiandae sed.</p>
+                </div>
+                <div class="card">
+                    <img src="./images/couch3.png" alt="Couch3" id="image3">
+                    <h1 id="name3">Three </h1>
+                    <p id="desc3">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias quidem aut iure itaque necessitatibus libero ipsa perspiciatis impedit repudiandae sed.</p>
+                </div>
+                <div class="card">
+                    <img src="./images/couch4.png" alt="Couch4" id="image4">
+                    <h1 id="name4">Four </h1>
+                    <p id="desc4">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias quidem aut iure itaque necessitatibus libero ipsa perspiciatis impedit repudiandae sed.</p>
+                </div> -->
+            </section>
+        </section>
+    </div>
+
+    <!--scroll back to top-->
+    <button class="go-top-btn">
+        <img src="./images/arrow-up.png" alt="Arrow Up" title="Go to Top!">
+    </button>
+
+    <!--animated input form -->
+    <button class="Info-Btn" title="Information" onclick="displayInfo()">
+        Info
+    </button>
+
+    <!--online animation packages-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/gsap.min.js" integrity="sha512-qF6akR/fsZAB4Co1QDDnUXWnaQseLGXoniuSuSlPQK6+aWhlMZcHzkasCSlnWoe+TJuudlka1/IQ01Dnhgq95g==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/Flip.min.js" integrity="sha512-5T2jJO/ZsJWJf6PgHmhg28eQ92hNtwOxBiFbuGNvMHghg2RoMjMhNPo/QY8J9jccbeQ8o6fvqkR1KerjU4UlFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TimelineMax.min.js" integrity="sha512-lJDBw/vKlGO8aIZB8/6CY4lV+EMAL3qzViHid6wXjH/uDrqUl+uvfCROHXAEL0T/bgdAQHSuE68vRlcFHUdrUw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <!--linking js files-->
+    <script src="app.js"></script>
+    <script src="fullpage.min.js"></script>
+</body>
+</html>
