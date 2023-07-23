@@ -4,7 +4,7 @@ const multer = require('multer');
 const mongoose = require('mongoose');
 const fs = require('fs');
 const path = require('path');
-const port = 4000;
+const port = process.env.PORT || 4000;
 const bodyParser = require('body-parser');
 const { log } = require('console');
 
@@ -635,8 +635,8 @@ function errHandler(err, req, res, next){
     }
 }
 
-//listen for connections on port 4000
-app2.listen(4000, ()=> {
-    console.log("server up and running");
+//listen for connections
+app2.listen(port, ()=> {
+    console.log("server up and running on port ",port);
 });
 
