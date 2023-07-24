@@ -65,10 +65,10 @@ function login(){
                         startAlert("Logged in Successfully.")
                         console.warn("Valid user");
                         console.warn(users[j]['_id']);
-                        setCookie('CurrentUser',`${users[j]['_id']}`, '1');
+                        setCookie("CurrentUser",`${users[j]['_id']}`, '1');
                         //getCookie('CurrentUser');
                         //checkCookie();
-                        location.href = "http://127.0.0.1:5500/admin/html/admin.html";
+                        location.href = "/admin/html/admin.html";
                     }
                 }
                 if(incorrectPassword===1)

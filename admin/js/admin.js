@@ -18,7 +18,7 @@ function checkUser(){
         document.body.appendChild(title);
     }
     else{
-        title.innerText = "Please login again.";
+        title.innerHTML = `<a href="http://127.0.0.1:5500/index.html">Please Login Again.</a>`;        //alert('Cookie Expired.');
         alert('Cookie Expired.');
         document.body.appendChild(title);
     }
