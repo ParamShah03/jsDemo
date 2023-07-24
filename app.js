@@ -73,9 +73,9 @@ var couchList = [];
 
 //get request to database in javascript
 async function getAPI() {
-    let chairs = await fetch("http://localhost:4000/upload/chairs");
-    let couchs = await fetch("http://localhost:4000/upload/couchs");
-    var features = await fetch("http://localhost:4000/features");
+    let chairs = await fetch("http://jsdemo.onrender.com/upload/chairs");
+    let couchs = await fetch("http://jsdemo.onrender.com/upload/couchs");
+    var features = await fetch("http://jsdemo.onrender.com/features");
     //handling 2nd promise
     chairs = await chairs.json();
     couchs = await couchs.json();

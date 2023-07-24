@@ -38,7 +38,7 @@ function checkUser(){
     }
     else{
         contents.style.display = "none";
-        title.innerText = "Please login again.";
+        title.innerHTML = `<a href="http://127.0.0.1:5500/index.html">Please Login Again.</a>`;
         //alert('Cookie Expired.');
         document.body.appendChild(title);
     }
@@ -170,7 +170,7 @@ function viewImage(name,i) {
 
 // deleting an image
 function deleteImage(id, image) {
-    fetch(`http://localhost:4000/upload/couch/${id}`, {
+    fetch(`http://jsdemo.onrender.com/upload/couch/${id}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",

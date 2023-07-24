@@ -10,7 +10,6 @@ function setCookie(cname, cvalue, exdays) {
 
 // get cookie value
 function getCookie(cname) {
-    console.warn(cname); 
     let name = cname + "=";
     let ca = document.cookie.split(';');
     for(let i = 0; i < ca.length; i++) {

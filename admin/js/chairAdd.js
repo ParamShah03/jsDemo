@@ -32,8 +32,7 @@ function checkUser(){
     }
     else{
         contents.style.display = "none";
-        title.innerText = "Please login again.";
-        //alert('Cookie Expired.');
+        title.innerHTML = `<a href="http://127.0.0.1:5500/index.html">Please Login Again.</a>`;        //alert('Cookie Expired.');
         document.body.appendChild(title);
     }
 }
@@ -73,7 +72,7 @@ function addChair(){
         formData.append('title', chairTitle.value);
         formData.append('image', chairImage.files[0]);
 
-        fetch("http://localhost:4000/upload/chair/add",
+        fetch("http://jsdemo.onrender.com/upload/chair/add",
         {
             method: "POST",
             body: formData,

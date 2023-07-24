@@ -113,7 +113,7 @@ function signUp(){
         startAlert("Password does not have special characters!");
     }
     else{
-        fetch('http://localhost:4000/user',
+        fetch('http://jsdemo.onrender.com/user',
         {
             method: "Post",
             headers: {
@@ -132,6 +132,7 @@ function signUp(){
             console.warn(data);
         })
         .catch((err)=>{
+            startAlert(err);
             console.warn("Error: ", err);
         })
     }
@@ -159,7 +160,7 @@ function startAlert(msg) {
 var users;
 // js get request for users
 async function getUsers() {
-    var usersFetch = await fetch("http://localhost:4000/users");
+    var usersFetch = await fetch("http://jsdemo.onrender.com/users");
     users = await usersFetch.json();
 
     //console.warn(users);
