@@ -30,10 +30,6 @@ signInLink.addEventListener('click', ()=>{
     wrapper.classList.remove('animate-signIn');
 });
 
-// navigate to home page
-function navigateToHome(){
-    location.href = "../jsDemo/home.html";
-}
 
 
 //login button
@@ -68,7 +64,7 @@ function login(){
                         setCookie("CurrentUser",`${users[j]['_id']}`, '1');
                         //getCookie('CurrentUser');
                         //checkCookie();
-                        location.href = "/admin/html/admin.html";
+                        window.location.href = "/admin/html/admin.html";
                     }
                 }
                 if(incorrectPassword===1)

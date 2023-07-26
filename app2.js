@@ -637,6 +637,6 @@ function errHandler(err, req, res, next){
 
 //listen for connections
 app2.listen(port, ()=> {
-    console.log("server up and running on port ",port);
+    console.log("server up and running");
 });
 

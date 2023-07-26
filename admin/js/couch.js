@@ -29,8 +29,8 @@ function checkUser(){
         })
         .then(data => {
             sidebarAttach.innerHTML = data;
-            getCouch();
             attachSidebar();
+            getCouch();
         })
         .catch(err=>console.warn(err));
         //alert('welcome user.');
@@ -38,7 +38,7 @@ function checkUser(){
     }
     else{
         contents.style.display = "none";
-        title.innerHTML = `<a href="http://127.0.0.1:5500/index.html">Please Login Again.</a>`;
+        title.innerHTML = `<a href="/index.html">Please Login Again.</a>`;
         //alert('Cookie Expired.');
         document.body.appendChild(title);
     }
