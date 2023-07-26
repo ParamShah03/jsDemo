@@ -61,7 +61,7 @@ function login(){
                         startAlert("Logged in Successfully.")
                         console.warn("Valid user");
                         console.warn(users[j]['_id']);
-                        setCookie("CurrentUser",`${users[j]['_id']}`, '1');
+                        setCookie("CurrentUser",`${users[j]['_id']}`, 2);
                         //getCookie('CurrentUser');
                         //checkCookie();
                         window.location.href = "/admin/html/admin.html";
@@ -158,7 +158,6 @@ var users;
 async function getUsers() {
     var usersFetch = await fetch("http://jsdemo.onrender.com/users");
     users = await usersFetch.json();
-
     //console.warn(users);
 }
 getUsers();
