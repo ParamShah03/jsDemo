@@ -19,10 +19,11 @@ var multerEditImg;
 //to remove cross-origin-no-access-control error
 const cors=require("cors");
 const corsOptions ={
-   origin:'*', 
+   origin:'http://param-training.infinityfreeapp.com/', 
    credentials:true,            //access-control-allow-credentials:true
    optionSuccessStatus:200,
    methods:'*',
+   headers: 'Content-Type'
 }
 app2.use(cors(corsOptions)); 
 
