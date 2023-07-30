@@ -2,7 +2,7 @@
 function setCookie(cname, cvalue, exdays) {
   console.warn('cookie: ', cvalue);    
   const d = new Date();
-  d.setTime(d.getTime() + (exdays * 60 * 60 * 60 * 1000));
+  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
   let expires = "expires="+d.toUTCString();
   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
   console.warn('Cookie set');
@@ -30,10 +30,15 @@ function checkCookie() {
     console.warn('checking cookie');
     let cUser = getCookie('CurrentUser');
     if (cUser.length===0) {
-      alert("Cookie Expired!")
+      console.warn("Cookie Expired!");
       return false;
     } else {
       console.warn("Welcome User:", cUser);
       return true;
     }
+}
+
+async function deleteCookie(cname) {
+  document.cookie = await cname + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;;path=/';
+  console.warn(document.cookie);
 }

@@ -1,9 +1,23 @@
 const wrapper = document.querySelector('.wrapper');
 const signUpLink = document.querySelector('.signUp-link');
 const signInLink = document.querySelector('.signIn-link');
+
 var warning = document.getElementById("warning-msg");
 var alert = document.getElementById("alert");
 var close = document.getElementById("close-btn");
+
+function checkUser(){
+    if(checkCookie()){
+        window.location.href = "/admin/html/admin.html";
+        startAlert('Welcome Back!');
+        
+    }
+    else{
+        startAlert('Please Login.');
+    }
+}
+
+window.onload = checkUser();
 
 //to check special character
 function containsSpecialChars(str) {
@@ -58,13 +72,15 @@ function login(){
                 {
                     if(Uid === users[j]['_id'] && loginPassword=== users[j]['password']){
                         incorrectPassword=0;
-                        startAlert("Logged in Successfully.")
+                        startAlert("Logging in...")
                         console.warn("Valid user");
                         console.warn(users[j]['_id']);
                         setCookie("CurrentUser",`${users[j]['_id']}`, 2);
                         //getCookie('CurrentUser');
                         //checkCookie();
-                        window.location.href = "/admin/html/admin.html";
+                        setTimeout(()=>{
+                            window.location.href = "/admin/html/admin.html";
+                        },4500);
                     }
                 }
                 if(incorrectPassword===1)

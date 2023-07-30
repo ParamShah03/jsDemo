@@ -158,8 +158,13 @@ async function getCouch() {
         td1.addEventListener('click', ()=>{
             displayDetails(`${couchs[i]['title']}`,`${couchs[i]['description']}`);
         });
+
+        
     }
+    // dataTable usage
+    $('#couch-table').DataTable();
 }
+
 
 // viewing image
 function viewImage(name,i) {
