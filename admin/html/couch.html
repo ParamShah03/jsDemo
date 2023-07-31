@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/dataTables.bulma.min.css">
+
     <link rel="stylesheet" href="../css/couch.css">
     <link rel="stylesheet" href="../css/admin.css">
     <title>Visual Panel</title>
@@ -21,7 +24,7 @@
     <div class="couch-contents" id="couch-contents">
 
         <!-- warning alert -->
-        <div class="alert" id="alert">
+        <div class="alert1" id="alert">
             <span class="fas fa-exclamation-circle"></span>
             <span class="msg" id="warning-msg">This is alert warning</span>
             <span class="close-btn-alert" id="close-btn-alert">
@@ -33,8 +36,8 @@
         <section class="modal hidden">
             
             <button class="btn-close" onclick="closeModal()">⨉</button>
-            <h3 id="modal-title">Couch Details</h3>
-            <p>Are you sure you want to delete this record?</p>
+            <h3 id="modal-title"></h3>
+            <p id="delete-para"></p>
             <input type="hidden" id="couchId" name="couchId" value="">
             <input type="hidden" id="couchImg" name="couchImg" value="">
             <button class="btn" id="yes" onclick="return yesBtn();">Yes</button>
@@ -66,13 +69,16 @@
 
         <h2>Visual Panel Details</h2>
         <button class="addBtn" id="addBtn" ><i class="fas fa-cloud-upload"></i> Add</button>
-        <table id="couch-table">
-            <tr>
-                <th>Title</th>
-                <th>View</th>
-                <th>Edit</th>
-                <th>Delete</th>
-            </tr>
+        <table id="couch-table" class="table is-striped">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>View</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            
             <tbody id="couchData">
                 <!-- <td>title</td>
                 <td><a href="#" target="_blank" title="view Image" id="viewImage" onclick="viewImage()"><i class="fas fa-eye"></i></a></td>
@@ -90,6 +96,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.5/js/dataTables.bulma.min.js"></script>
 
     <script src="../../cookie.js"></script>
     <script src="../../callApi.js"></script>

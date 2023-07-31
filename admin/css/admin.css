@@ -78,8 +78,8 @@
 }
 
 
-/* alert warning */
-.alert{
+/* alert1 warning */
+.alert1{
     background: #fdfafb;
     padding: 20px 40px;
     min-width: 400px;
@@ -93,8 +93,8 @@
     pointer-events: none;
 }
 
-/* animation of alert warning */
-.alert.show{   
+/* animation of alert1 warning */
+.alert1.show{   
     opacity: 1; 
     pointer-events: auto;
     animation: show_slide 1s ease forwards;
@@ -113,7 +113,7 @@
         transform: translateX(-10px);
     }
 }
-.alert.hide {
+.alert1.hide {
     opacity: 1;
     animation: hide_slide 1s ease forwards;
 }
@@ -132,7 +132,7 @@
     }
 }
 
-.alert .fa-exclamation-circle{
+.alert1 .fa-exclamation-circle{
     position: absolute;
     left: 10px;
     top: 50%;
@@ -140,13 +140,13 @@
     color: #222020;
     font-size: 37px;
 }
-.alert .msg{
+.alert1 .msg{
     padding: 0 20px;
     font-size: 18px;
     font-weight: 600;
     color: #333;
 }
-.alert .close-btn{
+.alert1 .close-btn-alert{
     position: absolute;;
     right: 0px;
     top: 50%;

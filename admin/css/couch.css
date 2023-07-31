@@ -13,6 +13,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 0.4rem;
+    height: 270px;
     width: 450px;
     padding: 1.3rem;
     min-height: 250px;
@@ -22,29 +23,34 @@
     border: 1px solid #ddd;
     border-radius: 15px;
     z-index: 2;
-    transform: translate(62%, 25%);
+    transform: translate(120%, 25%);
 }
 /* modal title */
 .modal h3 {
-    transform: translateY(-50px);
-    font-size: 25px;
+    transform: translate(-150px,-50px);
+    color: black;
+    font-size: 1.7rem;
     pointer-events: none;
+    font-weight: bolder;
 
 }
 /* modal paragraph */
 .modal p {
     transform: translateY(-30px);
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     color: #434343;
     margin: 0.4rem 0 0.2rem;
     pointer-events: none;
+    font-weight: 400;
+
 
 }
 
-button {
+#yes {
     cursor: pointer;
     border: none;
     font-weight: 600;
+    width: 100%;
 }
 /* yes button */
 .btn {
@@ -55,20 +61,17 @@ button {
     color: white;
     border-radius: 5px;
     text-align: center;
-    font-size: 1.2em;
+    font-size: 1.5em;
 }
-
-
 /* close button on delete popup */
 .btn-close {
-    transform: translate(375px, -10px);
+    transform: translate(190px, -6px);
     width: 40px;
     height: 40px;
     font-size: 24px;
-    background: #e3e2e2;
+    background-color: #e3e2e2;
     border-radius: 50%;
     cursor: pointer;
-
 }
 /* blur background */
 .overlay {
@@ -117,9 +120,15 @@ h2{
 
 /* add button hover effect */
 #addBtn:hover {
-    background-color: #106c4a;
-    
+    background-color: #106c4a; 
 }
+
+/* dataTable fliter */
+.dataTables_filter {
+    padding-bottom: 10px;
+}
+
+
 
 /* make contents visible */
 .couch-contents {
@@ -132,6 +141,8 @@ h2{
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
+    transform: translateY(10px);
+    margin-bottom: 20px !important;
 }
 
 #couch-table td, #couch-table th, #couch-table tr th{
@@ -214,13 +225,15 @@ h2{
 
 
 /* alert warning */
-.alert{
+.alert1{
+    position: absolute ;
+    right: 5px;
+    bottom: 35px;
+
     background: #c0f580;
     padding: 20px 40px;
     min-width: 400px;
-    position: absolute;
-    right: 5px;
-    bottom: 35px;
+    height: 9%;
     overflow: hidden;
     border-radius: 5px;
     border-left: 12px solid #0c0d32;
@@ -230,7 +243,7 @@ h2{
 }
 
 /* animation of alert warning */
-.alert.show{   
+.alert1.show{  
     opacity: 1; 
     pointer-events: auto;
     animation: show_slide 1s ease forwards;
@@ -249,7 +262,7 @@ h2{
         transform: translateX(-10px);
     }
 }
-.alert.hide {
+.alert1.hide {
     opacity: 1;
     animation: hide_slide 1s ease forwards;
 }
@@ -268,7 +281,7 @@ h2{
     }
 }
 
-.alert .fa-exclamation-circle{
+.alert1 .fa-exclamation-circle{
     position: absolute;
     left: 10px;
     top: 50%;
@@ -276,13 +289,13 @@ h2{
     color: #222020;
     font-size: 37px;
 }
-.alert .msg{
+.alert1 .msg{
     padding: 0 20px;
     font-size: 22px;
     font-weight: 600;
     color: #333;
 }
-.alert .close-btn-alert{
+.alert1 .close-btn-alert{
     position: absolute;;
     right: 0px;
     top: 50%;

@@ -66,8 +66,8 @@ input[type=submit]:hover {
     background-color: #0c7b52;
 }
 
-/* alert warning */
-.alert{
+/* alert1 warning */
+.alert1{
     background: #c0f580;
     padding: 20px 40px;
     min-width: 400px;
@@ -82,8 +82,8 @@ input[type=submit]:hover {
     z-index: 2;
 }
 
-/* animation of alert warning */
-.alert.show{   
+/* animation of alert1 warning */
+.alert1.show{   
     opacity: 1; 
     pointer-events: auto;
     animation: show_slide 1s ease forwards;
@@ -102,7 +102,7 @@ input[type=submit]:hover {
         transform: translateX(-10px);
     }
 }
-.alert.hide {
+.alert1.hide {
     opacity: 1;
     animation: hide_slide 1s ease forwards;
 }
@@ -121,7 +121,7 @@ input[type=submit]:hover {
     }
 }
 
-.alert .fa-exclamation-circle{
+.alert1 .fa-exclamation-circle{
     position: absolute;
     left: 10px;
     top: 50%;
@@ -129,13 +129,13 @@ input[type=submit]:hover {
     color: #222020;
     font-size: 37px;
 }
-.alert .msg{
+.alert1 .msg{
     padding: 0 20px;
     font-size: 22px;
     font-weight: 600;
     color: #333;
 }
-.alert .close-btn-alert{
+.alert1 .close-btn-alert{
     position: absolute;;
     right: 0px;
     top: 50%;
@@ -143,10 +143,10 @@ input[type=submit]:hover {
     background: #fcc56c;
     cursor: pointer;
 }
-.close-btn-alert:hover{
+.close-btn-alert1:hover{
     background: #e84646;
 }
-.close-btn-alert .fa-times{
+.close-btn-alert1 .fa-times{
     color: #222020;
     font-size: 37px;
     transform: translate(7px, 32px);

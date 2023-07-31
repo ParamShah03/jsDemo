@@ -2,7 +2,7 @@
 function setCookie(cname, cvalue, exdays) {
   console.warn('cookie: ', cvalue);    
   const d = new Date();
-  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+  d.setTime(d.getTime() + (exdays * 60 * 60 * 60 * 1000));
   let expires = "expires="+d.toUTCString();
   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
   console.warn('Cookie set');

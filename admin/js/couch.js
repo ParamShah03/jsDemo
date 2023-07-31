@@ -15,28 +15,29 @@ const popupDescription = document.getElementById('popup-desc');
 var warning = document.getElementById("warning-msg");
 var alertWarning = document.getElementById("alert");
 var close = document.getElementById("close-btn-alert");
+
 var deleteTitle = document.getElementById('modal-title');
 
 
 // check cookie for the currentuser
-function checkUser(){
-    if(checkCookie()){
+function checkUser() {
+    if (checkCookie()) {
         fetch('../html/adminSidebar.html')
-        .then(res =>{
-            if(res.ok){
-                return res.text();
-            }
-        })
-        .then(data => {
-            sidebarAttach.innerHTML = data;
-            attachSidebar();
-            getCouch();
-        })
-        .catch(err=>console.warn(err));
+            .then(res => {
+                if (res.ok) {
+                    return res.text();
+                }
+            })
+            .then(data => {
+                sidebarAttach.innerHTML = data;
+                attachSidebar();
+                getCouch();
+            })
+            .catch(err => console.warn(err));
         //alert('welcome user.');
-        
+
     }
-    else{
+    else {
         contents.style.display = "none";
         title.innerHTML = `<a href="/index.html">Please Login Again.</a>`;
         //alert('Cookie Expired.');
@@ -46,49 +47,60 @@ function checkUser(){
 checkUser();
 
 // fetching sidebar
-function attachSidebar(){
+function attachSidebar() {
     fetch('../html/adminSidebar.html')
-    .then(res => {
-        if (res.ok) {
-            return res.text();
-        }
-    })
-    .then(data => {
-        sidebarAttach.innerHTML = data;
-        const collectionDropdown = document.getElementById('collection-dropdown');
-        const couchTile = document.getElementById('Couchs');
+        .then(res => {
+            if (res.ok) {
+                return res.text();
+            }
+        })
+        .then(data => {
+            sidebarAttach.innerHTML = data;
+            const collectionDropdown = document.getElementById('collection-dropdown');
+            const couchTile = document.getElementById('Couchs');
 
-        // making current page active
-        collectionDropdown.style.display = "block";
-        couchTile.style.background = "#0e6e9e";
+            // making current page active
+            collectionDropdown.style.display = "block";
+            couchTile.style.background = "#0e6e9e";
 
-    })
-    .catch(err => console.warn(err));
+        })
+        .catch(err => console.warn(err));
+}
+
+
+const confirm = document.getElementById('yes');
+// yes button function
+function yesBtn() {
+    closeModal();
+
+    if (logoutBool === true) {
+        // log out if bool is true
+        deleteCookie("CurrentUser")
+            .then(() => {
+                window.location.href = "../../index.html";
+            })
+            .catch(e => console.warn(e));
+        logoutBool = false;
+    } else {
+        deleteImage(couchId.value, couchImg.value);
+    }
+
+    return false;
 }
 
 // delete button functionalities
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
-
-
-const confirm = document.getElementById('yes');
-// yes button function
-function yesBtn(){
-    closeModal();
-
-    deleteImage(couchId.value, couchImg.value);
-
-    return false;
-}
+const deletePara = document.getElementById('delete-para');
 
 // display delete modal
 var couchId = document.getElementById('couchId');
 var couchImg = document.getElementById('couchImg');
 function openModal(id, image, title) {
-
     couchId.value = id;
     couchImg.value = image;
     deleteTitle.innerHTML = title;
+    deletePara.innerText = "Are you sure you want to delete this record?";
 
     modal.classList.remove("hidden");
     overlay.classList.remove("hidden");
@@ -111,7 +123,7 @@ overlay.addEventListener("click", closeModal);
 
 
 // add button on click
-addBtn.addEventListener('click',()=>{
+addBtn.addEventListener('click', () => {
     window.location.href = "../html/couchAdd.html";
 });
 // initializing acll API class
@@ -155,19 +167,51 @@ async function getCouch() {
         couchData.appendChild(tr);
 
         // deatils popup
-        td1.addEventListener('click', ()=>{
-            displayDetails(`${couchs[i]['title']}`,`${couchs[i]['description']}`);
+        td1.addEventListener('click', () => {
+            displayDetails(`${couchs[i]['title']}`, `${couchs[i]['description']}`);
         });
 
-        
+
     }
     // dataTable usage
-    $('#couch-table').DataTable();
+    $(document).ready(function () {
+        $('#couch-table').DataTable({
+            "lengthMenu": [[3, -1], [3, "All"]],
+            "pagingType": "numbers",
+            columnDefs: [
+                {
+                    orderable: false,
+                    searchable: false,
+                    targets: [1, 2, 3]
+                }
+            ],
+
+            // export buttons
+            dom: 'Bfrtip',
+            buttons: [
+                'pageLength',
+                {
+                    extend: 'copyHtml5',
+                    text: 'Copy',
+                    exportOptions: {
+                        modifier: {
+                            page: 'current'
+                        }
+                    }
+                },
+                'excelHtml5',
+                'csvHtml5',
+                'pdfHtml5'
+            ]
+
+        });
+    })
+
+
 }
 
-
 // viewing image
-function viewImage(name,i) {
+function viewImage(name, i) {
     let viewImage = document.getElementById(`viewImage${i}`);
     viewImage.href = `http://localhost:5500/upload/images/couchs/${name}`;
     //alert(image);
@@ -184,20 +228,20 @@ function deleteImage(id, image) {
             name: `${image}`
         })
     })
-    .then(res => {
-        startAlert("Deleted.");
-        res.json();
-    })
-    .then((result) =>{
-        
-    })
-    .catch(err=> console.warn(err));
+        .then(res => {
+            startAlert("Deleted.");
+            res.json();
+        })
+        .then((result) => {
+
+        })
+        .catch(err => console.warn(err));
 
     return false;
 }
 
 // edit couch data
-function passCouch(id,i){
+function passCouch(id, i) {
     let editHref = document.getElementById(`editData${i}`);
     // passing id in url as querystring
     var obj = {
@@ -210,7 +254,7 @@ function passCouch(id,i){
 }
 
 // display details
-function displayDetails (title, desc){
+function displayDetails(title, desc) {
 
     popupTitle.innerHTML = title;
     popupDescription.innerHTML = desc;
@@ -220,7 +264,7 @@ function displayDetails (title, desc){
 }
 
 // functionalities of alert 
-close.addEventListener('click', ()=>{
+close.addEventListener('click', () => {
     alertWarning.classList.add("hide");
     alertWarning.classList.remove("show");
 });
@@ -229,9 +273,24 @@ function startAlert(msg) {
     alertWarning.classList.add("show");
     alertWarning.classList.remove("hide");
 
-    setTimeout(()=>{
+    setTimeout(() => {
         alertWarning.classList.add("hide");
-        alertWarning.classList.remove("show");  
-    },3000)
+        alertWarning.classList.remove("show");
+    }, 3000)
 
 }
+
+// logout popup
+var logoutBool;
+function openModalLogout() {
+    deleteTitle.innerText = "Logout";
+    deletePara.innerText = "Are you sure you want to logout?";
+
+    modal.classList.remove("hidden");
+    overlay.classList.remove("hidden");
+
+    // set logout bool to true
+    logoutBool = true;
+    
+    return false;
+};

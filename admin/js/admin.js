@@ -5,6 +5,8 @@ var warning = document.getElementById("warning-msg");
 var alertDiv = document.getElementById("alert");
 var close = document.getElementById("close-btn");
 
+var deleteTitle = document.getElementById('modal-title');
+
 function checkUser(){
     if(checkCookie()){
         fetch('../html/adminSidebar.html')
