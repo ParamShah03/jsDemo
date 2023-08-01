@@ -17,4 +17,11 @@ class getDatabase {
 
         return features;
     }
+
+    async getUsers() {
+        var users = await fetch("http://jsdemo.onrender.com/users");
+        users = await users.json();
+
+        return users;
+    }
 }

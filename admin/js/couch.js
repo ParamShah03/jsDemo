@@ -126,9 +126,9 @@ overlay.addEventListener("click", closeModal);
 addBtn.addEventListener('click', () => {
     window.location.href = "../html/couchAdd.html";
 });
-// initializing acll API class
-const get = new getDatabase();
 
+// initializing call API class
+const get = new getDatabase();
 
 // get couch data
 async function getCouch() {

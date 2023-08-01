@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="forgotPass.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <title>Forgot Password</title>
+</head>
+<body>
+    <!-- warning alert -->
+    <div class="alert" id="alert">
+        <span class="fas fa-exclamation-circle"></span>
+        <span class="msg" id="warning-msg">This is alert warning</span>
+        <span class="close-btn" id="close-btn">
+            <span class="fas fa-times"></span>
+        </span>
+    </div>
+
+    <!-- forgot password div -->
+    <div class="wrapper">
+        <div class="form-wrapper forgot-password">
+            <form action="" >
+                <h2>Forgot Password</h2>
+                <div class="input-group">
+                    <input type="text" id="email" required>
+                    <label for="email">Email</label>
+                </div>
+                <button type="submit" class="btn" id="signUp-btn" onclick="return sendEmail();">Send Email</button>
+                <div class="sign-link">
+                    <p>Not a registered user?<a href="/index.html" class="signIn-link">Sign Up</a></p>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    
+    <!-- Script tags -->
+    <script src="callApi.js"></script>
+    <script src="forgotPass.js"></script>
+</body>
+</html>

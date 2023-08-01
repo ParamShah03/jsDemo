@@ -6,8 +6,7 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-
-/* body of index */
+/* body of forgotPass */
 body {
     display: flex;
     justify-content: center;
@@ -31,7 +30,6 @@ body {
     opacity: 0;
     pointer-events: none;
 }
-
 /* animation of alert warning */
 .alert.show{   
     opacity: 1; 
@@ -104,7 +102,6 @@ body {
     width: 40px;
 }
 
-
 /* wrapper class */
 .wrapper {
     position: relative;
@@ -112,76 +109,16 @@ body {
     height: 500px;
 }
 
-/* behind sing up form */
-.wrapper .form-wrapper.sign-up {
-    transform: rotate(7deg);
-}
-
-/* sign in animation */
-.wrapper.animate-signIn .form-wrapper.sign-in {
-    animation: animateSignIn 1.5s ease-in-out forwards;
-}
-@keyframes animateSignIn {
-    0% {
-        transform: translateX(0);
-    }
-    50% {
-        transform: translateX(-500px);
-    }
-    100% {
-        transform: translateX(0) rotate(7deg);
-    }
-}
-
-/* sign in rotate */
-.wrapper.animate-signIn .form-wrapper.sign-up {
-    animation: animateRotate 0.7s ease-in-out forwards;
-    animation-delay: 0.3s;
-}
-@keyframes animateRotate {
-    0% {
-        transform: rotate(7deg);
-    }
-    100% {
-        transform: rotate(0);
-        z-index: 1;
-    }
-}
-
-/* sign up animation */
-.wrapper.animate-signUp .form-wrapper.sign-up {
-    animation: animateSignUp 1.5s ease-in-out forwards;
-}
-@keyframes animateSignUp {
-    0% {
-        transform: translateX(0);
-        z-index: 1;
-    }
-    50% {
-        transform: translateX(500px);
-    }
-    100% {
-        transform: translateX(0) rotate(7deg);
-    }
-}
-
-/* sign up rotation */
-.wrapper.animate-signUp .form-wrapper.sign-in {
-    transform: rotate(7deg);
-    animation: animateRotate 0.7s ease-in-out forwards;
-    animation-delay: 0.3s;
-}
-
 /* both form styling */
 .form-wrapper {
     position: absolute;
-    top: 0;    
+    top: 15%;    
     left: 0;
     justify-content: center;
     align-items: center;
     display: flex;
     width: 100%;
-    height: 100%;
+    height: 70%;
     background: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
@@ -257,7 +194,7 @@ h2 {
 }
 
 .sign-link {
-    font-size: 14px;
+    font-size: 18px;
     text-align: center;
     margin: 25px 0;
 }

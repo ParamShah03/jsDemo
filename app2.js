@@ -6,6 +6,7 @@ const fs = require('fs');
 const path = require('path');
 const port = process.env.PORT || 4000;
 const bodyParser = require('body-parser');
+const nodeMailer = require('nodemailer');
 const { log } = require('console');
 
 // path to couch upload image
@@ -48,6 +49,49 @@ mongoose.connect('mongodb+srv://ParamShah03:Param%402003@jsdemo.levjypi.mongodb.
 )
 .then(()=> console.log("db is connected"))
 .catch((err)=> console.log(err,"it has an error"));
+
+// SMTP transport
+var transporter = nodeMailer.createTransport({
+    service: 'gmail',
+    secure: true,
+    auth: {
+        user: "shaparam03@gmail.com",
+        pass: "kicdocuiywlizlcn"
+    }
+});
+
+// handling forgot pass word requests
+app2.use('/forgotPassword', (req, res)=> {
+    const emailAdd = req.body.email;
+
+    userModel.find({email: emailAdd})
+    .exec()
+    .then((user)=>{
+        var mailOptions = {
+            from: "shaparam03@gmail.com",
+            to: emailAdd,
+            subject: "Forgot Password",
+            html: ` <h1>Hello ${user[0].name}</h1>
+                    <h3>Your password for the acoount ${user[0].email} is: ${user[0].password}</h3>` 
+        }
+
+        // sending email to emailAdd
+        transporter.sendMail(mailOptions, function(error, info){
+            if(error) {
+                console.log(error);
+            } else {
+                console.log("Email sent: " + info.messageId);
+            }
+        });
+    })
+    .catch((err)=>{
+        res.json({
+            "Error": err
+        })
+    });
+    
+    res.send("forgot password");
+});
 
 // initializing id for all the 
 var id;
@@ -637,6 +681,6 @@ function errHandler(err, req, res, next){
 
 //listen for connections
 app2.listen(port, ()=> {
-    console.log("server up and running");
+    console.log("server up and running on "+ port);
 });
 
