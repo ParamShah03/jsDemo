@@ -171,7 +171,6 @@ async function getCouch() {
             displayDetails(`${couchs[i]['title']}`, `${couchs[i]['description']}`);
         });
 
-
     }
     // dataTable usage
     $(document).ready(function () {

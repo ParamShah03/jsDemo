@@ -288,10 +288,10 @@ color: white;
     background: #fcc56c;
     cursor: pointer;
 }
-.close-btn-alert1:hover{
+.close-btn-alert:hover{
     background: #e84646;
 }
-.close-btn-alert1 .fa-times{
+.close-btn-alert .fa-times{
     color: #222020;
     font-size: 37px;
     transform: translate(7px, 32px);

@@ -80,17 +80,20 @@
 
 /* alert1 warning */
 .alert1{
-    background: #fdfafb;
+    position: absolute ;
+    right: 5px;
+    bottom: 35px;
+
+    background: #c0f580;
     padding: 20px 40px;
     min-width: 400px;
-    position: absolute;
-    right: 5px;
-    top: 15px;
+    height: 9%;
     overflow: hidden;
     border-radius: 5px;
     border-left: 12px solid #0c0d32;
     opacity: 0;
     pointer-events: none;
+    z-index: 2;
 }
 
 /* animation of alert1 warning */
@@ -142,11 +145,11 @@
 }
 .alert1 .msg{
     padding: 0 20px;
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 600;
     color: #333;
 }
-.alert1 .close-btn-alert{
+.alert1 .close-btn{
     position: absolute;;
     right: 0px;
     top: 50%;
