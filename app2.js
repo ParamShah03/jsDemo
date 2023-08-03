@@ -7,6 +7,7 @@ const path = require('path');
 const port = process.env.PORT || 4000;
 const bodyParser = require('body-parser');
 const nodeMailer = require('nodemailer');
+const bcrypt = require('bcrypt');
 const { log } = require('console');
 
 // path to couch upload image
@@ -670,6 +671,20 @@ app2.post("/user", (req, res) => {
         email: req.body.email,
         password: req.body.password,
     });
+
+    // encrypting password
+    user.pre('save', async function(next){
+        try {
+            const salt = await bcrypt.genSalt(10);
+            const hashedPassword = await bcrypt.hash(this.password, salt);
+            this.password = hashedPassword;
+            next();
+        } catch (error) {
+            next(error);
+        }
+
+    });
+
     user.save()
         .then(() => {
             res.json({

@@ -154,7 +154,7 @@ function editCouch() {
             console.log('error', e);
         }
 
-        xhr.open('POST', `//localhost:4000/upload/couch/${id}`, true);
+        xhr.open('POST', `//jsdemo.onrender.com/upload/couch/${id}`, true);
         startAlert("Record Updated Successfully");
 
         xhr.send(formData);
@@ -189,9 +189,10 @@ function editCouch() {
         // if some err
         xhr.onerror = function (e) {
             console.log('error', e);
+            startAlert(e);
         }
 
-        xhr.open('POST', `//localhost:4000/upload/couch/${id}`, true);
+        xhr.open('POST', `//jsdemo.onrender.com/upload/couch/${id}`, true);
         xhr.send(formData);
         startAlert("Record Updating...");
         xhr.upload.addEventListener('progress', function (e) {
@@ -207,7 +208,6 @@ function editCouch() {
 
     return false;
 }
-
 
 
 // functionalities of alert 
