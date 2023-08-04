@@ -30,7 +30,8 @@ function checkUser(){
     }
     else{
         contents.style.display = "none";
-        title.innerHTML = `<a href="http://127.0.0.1:5500/index.html">Please Login Again.</a>`;        //alert('Cookie Expired.');
+        title.innerHTML = `<a href="http://127.0.0.1:5500/index.html">Please Login Again.</a>`;
+        startAlert('Cookie Expired.');
         document.body.appendChild(title);
     }
 }

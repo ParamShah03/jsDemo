@@ -34,7 +34,8 @@ function checkUser() {
     }
     else {
         contents.style.display = "none";
-        title.innerHTML = `<a href="http://127.0.0.1:5500/index.html">Please Login Again.</a>`;
+        title.innerHTML = `<a href="https://param-training.netlify.app/index.html">Please Login Again.</a>`;
+        startAlert('Cookie Expired.');
         document.body.appendChild(title);
     }
 }
@@ -121,29 +122,6 @@ function editCouch() {
     formData.append('description', description.value);
 
     if (!file.files[0]) {
-        // fetch(`http://localhost:4000/upload/couch/${id}`,
-        //     {
-        //         method: "POST",
-        //         headers: {
-        //             "Content-Type": "application/json",
-        //         },
-        //         body: JSON.stringify({
-        //             title: couchTitle.value,
-        //             description: description.value
-        //         })
-        //     })
-        //     .then((res) => {
-        //         res.json();
-        //         startAlert('Edited Successfully.');
-        //     })
-        //     .then((data) => {
-        //         console.warn(data);
-
-        //     })
-        //     .catch((err) => {
-        //         console.warn("Error: ", err);
-        //     })
-
 
         // upload get aborted
         xhr.upload.onabort = () => {
@@ -164,23 +142,6 @@ function editCouch() {
         let percentComplete = 0;
 
         // startAlert('Edited Successfully.');
-
-
-        // fetch(`http://jsdemo.onrender.com/upload/couch/${id}`,
-        //     {
-        //         method: "POST",
-        //         body: formData,
-        //     })
-        //     .then((res) => {
-        //         res.json();
-        //     })
-        //     .then((data) => {
-
-        //     })
-        //     .catch((err) => {
-        //         console.warn("Error: ", err);
-        //     })
-
 
         // upload get aborted
         xhr.upload.onabort = () => {

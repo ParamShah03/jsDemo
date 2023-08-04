@@ -232,6 +232,7 @@ app2.post("/upload/couch/:couchID",
         }
         else {
             //edit the couch record
+
             // get extension of the file of name couchID
             fs.readdirSync(couchImgPath).every(file => {
                 if (file.split('.')[0] == couchID) {
@@ -241,17 +242,17 @@ app2.post("/upload/couch/:couchID",
 
                 return true;
             });
-            
+
             couchModel.findOneAndUpdate({ _id: couchID },
                 {
                     $set: {
                         "title": req.body.title,
                         "description": req.body.description,
-                        "name": 
+                        "name":
                             (req.file == null)
-                            ? couchID + ext
-                            : couchID + path.extname(req.file.originalname)
-                            
+                                ? couchID + ext
+                                : couchID + path.extname(req.file.originalname)
+
                     }
                 }
             )
@@ -665,37 +666,36 @@ app2.delete("/upload/feature/:featureId", (req, res) => {
 
 //create a user
 app2.post("/user", (req, res) => {
-    const user = new userModel({
-        _id: new mongoose.Types.ObjectId(),
-        name: req.body.name,
-        email: req.body.email,
-        password: req.body.password,
-    });
 
+    const Password = req.body.password;
     // encrypting password
-    user.pre('save', async function(next){
-        try {
-            const salt = await bcrypt.genSalt(10);
-            const hashedPassword = await bcrypt.hash(this.password, salt);
-            this.password = hashedPassword;
-            next();
-        } catch (error) {
-            next(error);
-        }
-
-    });
-
-    user.save()
-        .then(() => {
-            res.json({
-                message: "User created successfully"
-            })
+    bcrypt
+        .genSalt(10)
+        .then(salt => {
+            return bcrypt.hash(Password, salt);
         })
-        .catch((err) => {
-            res.json({
-                error: err
-            })
-        });
+        .then(hash => {
+            const user = new userModel({
+                _id: new mongoose.Types.ObjectId(),
+                name: req.body.name,
+                email: req.body.email,
+                password: hash,
+            });
+
+            user.save()
+                .then(() => {
+                    console.log("user created");
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+
+        })
+        .catch(err => console.error(err.message))
+
+
+
+    res.end();
 });
 
 //get request for users
@@ -710,10 +710,49 @@ app2.get("/users", (req, res) => {
         })
         .catch(err => {
             console.log(err);
-            res.send().json({
+            res.json({
                 error: err
             });
         });
+});
+
+// decrypt password at login
+app2.post("/login", upload4.none(), async (req, res) => {
+    const email = req.body.email;
+    const password = req.body.password;
+
+    try {
+        const user = await userModel.find({ email: email });
+        if (user.length != 0) {
+            const ismatch = await bcrypt.compare(password, user[0].password);
+            if (!ismatch) {
+                res.status(400).json({
+                    "Success": false,
+                    "Message": "Password does not match!"
+
+                });
+            } else {
+                res.json({
+                    "Success": true,
+                    "Id": user[0]._id
+                })
+            }
+        } else {
+            res.status(400).json({
+                "Success": false,
+                "Message": "Not a Reigistered Account!"
+            })
+        }
+    } catch (error) {
+        console.log(error);
+        res.status(400).json({
+            "Success": false,
+            "Message": error
+        })
+    }
+
+
+
 });
 
 //error handling for multer

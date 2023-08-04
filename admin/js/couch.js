@@ -40,7 +40,7 @@ function checkUser() {
     else {
         contents.style.display = "none";
         title.innerHTML = `<a href="/index.html">Please Login Again.</a>`;
-        //alert('Cookie Expired.');
+        startAlert('Cookie Expired.');
         document.body.appendChild(title);
     }
 }

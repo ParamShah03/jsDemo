@@ -30,6 +30,7 @@ body {
     border-left: 12px solid #0c0d32;
     opacity: 0;
     pointer-events: none;
+    z-index: 5;
 }
 
 /* animation of alert warning */
